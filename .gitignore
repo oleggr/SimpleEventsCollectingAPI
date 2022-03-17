@@ -1,0 +1,8 @@
+.idea
+**/.DS_Store
+venv/
+.pytest*
+**/__pycache__/
+.env
+dev.env
+dev-docker-compose.yml
