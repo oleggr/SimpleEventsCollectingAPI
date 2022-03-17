@@ -1,0 +1,2 @@
+# SimpleEventsCollectingAPI
+MVP of SimpleEventsCollectingAPI
