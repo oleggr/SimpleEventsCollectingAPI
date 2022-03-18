@@ -25,7 +25,7 @@ def test_successful_add_event(client: TestClient, custom_local_user):
     }
     response = client.post('/api/add/event', json=event_json)
     assert response.status_code == status.HTTP_201_CREATED
-    assert response.json() == {"event id": 1}
+    assert response.json() == {"event id": custom_local_user}
 
 
 def test_unsuccessful_add_event(client: TestClient):
