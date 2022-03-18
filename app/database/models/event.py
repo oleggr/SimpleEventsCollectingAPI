@@ -1,8 +1,6 @@
 from datetime import date
 from pydantic import BaseModel, validator
 
-from app.database.services.user import UserService
-
 
 class EventBasic(BaseModel):
     time: date = 0
@@ -10,6 +8,7 @@ class EventBasic(BaseModel):
     service_type: int = 0
     volume: int = 0
 
+    # Too cool validation. Needed to adapted for using with tests.
     # @validator('id_user')
     # def user_id_validation(cls, v: int):
     #     user = UserService().sync_get_user(v)
