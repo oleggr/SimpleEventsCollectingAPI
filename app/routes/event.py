@@ -20,10 +20,7 @@ async def add_event(event: EventBasic, event_service=Depends(EventService)):
             status_code=status.HTTP_201_CREATED,
         )
     else:
-        return JSONResponse(
-            'Event was not recorded',
-            status_code=status.HTTP_304_NOT_MODIFIED,
-        )
+        return 'Event was not recorded'
 
 
 @router.get(

@@ -36,7 +36,6 @@ def test_unsuccessful_add_event(client: TestClient):
         "volume": 100,
     }
     response = client.post('/api/add/event', json=event_json)
-    assert response.status_code == status.HTTP_304_NOT_MODIFIED
     assert response.json() == 'Event was not recorded'
 
 
