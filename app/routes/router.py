@@ -1,8 +1,10 @@
-from fastapi import APIRouter
-from starlette import status
+from fastapi import APIRouter, status
+
+from app.routes import user
 
 
 router = APIRouter()
+router.include_router(user.router)
 
 
 @router.get(

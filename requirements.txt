@@ -2,3 +2,6 @@ fastapi~=0.75.0
 uvicorn~=0.17.6
 starlette~=0.17.1
 pytest~=7.1.0
+pydantic
+sqlalchemy
+alembic~=1.5.7
