@@ -14,7 +14,7 @@ Run command below:
 ```bash
 make docker
 ```
-
+Or use ```make local``` command to run app locally.
 
 ### Tests
 
