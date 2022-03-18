@@ -1,10 +1,11 @@
 from fastapi import APIRouter, status
 
-from app.routes import user
+from app.routes import user, tariff
 
 
 router = APIRouter()
 router.include_router(user.router)
+router.include_router(tariff.router)
 
 
 @router.get(

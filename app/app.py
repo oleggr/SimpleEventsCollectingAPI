@@ -1,9 +1,8 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from app.database.schema import metadata
-from app.database.services.abstract import DBHandler
 from app.routes.router import router
+from app.database.db_handler import DBHandler
 
 
 def get_application() -> FastAPI:

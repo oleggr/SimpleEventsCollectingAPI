@@ -1,6 +1,6 @@
 from sqlalchemy import (
     Column, Integer, Float, Date, DateTime,
-    Boolean, MetaData, String, Table,
+    MetaData, String, Table,
 )
 
 
@@ -27,4 +27,16 @@ users_table = Table(
     Column('city', String),
     Column('last_activity', DateTime),
     Column('tariff', Integer),
+)
+
+tariff_table = Table(
+    'tariffs',
+    metadata,
+    Column('id', Integer, primary_key=True, autoincrement=True),
+    Column('name', String),
+    Column('start_date', Date),
+    Column('end_date', Date),
+    Column('minutes', Integer),
+    Column('sms', Integer),
+    Column('traffic', Integer),
 )

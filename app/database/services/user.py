@@ -2,7 +2,7 @@ from datetime import datetime
 
 from app.database.schema import users_table
 from app.database.models.user import UserBasic, User
-from app.database.services.abstract import DBHandler
+from app.database.db_handler import DBHandler
 
 
 class UserService:

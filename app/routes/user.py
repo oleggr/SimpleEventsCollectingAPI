@@ -1,4 +1,4 @@
-from fastapi import APIRouter, status, HTTPException, Request, Depends
+from fastapi import APIRouter, status, Request, Depends
 from starlette.responses import JSONResponse
 
 from app.database.models.user import UserBasic

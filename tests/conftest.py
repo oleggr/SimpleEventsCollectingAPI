@@ -3,7 +3,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.app import app
-from app.database.services.abstract import DBHandler
+from app.database.db_handler import DBHandler
 
 
 @pytest.fixture(scope="session")
