@@ -1,16 +1,19 @@
-from sqlalchemy import and_
 from datetime import datetime
 
-from app.database.models.user import UserBasic, User
 from app.database.schema import users_table
-from app.database.services.abstract import AbstractService
+from app.database.models.user import UserBasic, User
+from app.database.services.abstract import DBHandler
 
 
-class UserService(AbstractService):
+class UserService:
+
+    def __init__(self):
+        self.db = DBHandler()
+
     async def add_user(self, user: UserBasic) -> [int, bool]:
         user.last_activity = datetime.now()
 
-        user_id = await self.insert(
+        user_id = await self.db.insert(
             users_table.insert().values({
                 'balance': user.balance,
                 'creation_date': user.creation_date,
@@ -24,7 +27,7 @@ class UserService(AbstractService):
         return user_id if user_id else False
 
     async def get_user(self, user_id: int) -> [User, bool]:
-        user_row = await self.select(
+        user_row = await self.db.select(
             users_table.select().where(
                 users_table.c.id == user_id,
             )
@@ -42,7 +45,7 @@ class UserService(AbstractService):
 
         data['last_activity'] = datetime.now()
 
-        await self.execute(
+        await self.db.execute(
             users_table.update()
             .where(users_table.c.id == user_id)
             .values(data)
@@ -50,7 +53,7 @@ class UserService(AbstractService):
         return True
 
     async def delete_user(self, user_id: int) -> bool:
-        await self.execute(
+        await self.db.execute(
             users_table.delete().where(
                 users_table.c.id == user_id,
             )

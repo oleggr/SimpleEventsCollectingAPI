@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
+from app.database.schema import metadata
+from app.database.services.abstract import DBHandler
 from app.routes.router import router
 
 
@@ -15,6 +17,8 @@ def get_application() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    DBHandler().create_tables()
 
     return application
 

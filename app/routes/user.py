@@ -45,7 +45,7 @@ async def delete_user(user_id: int, user_service=Depends(UserService)):
 
     if user_deleted:
         return JSONResponse(
-            "User successfully deleted",
+            'User successfully deleted',
             status_code=status.HTTP_200_OK,
         )
     else:
@@ -65,7 +65,7 @@ async def update_user(user_id: int, request: Request, user_service=Depends(UserS
 
     if user_updated:
         return JSONResponse(
-            "User successfully updated",
+            'User successfully updated',
             status_code=status.HTTP_200_OK,
         )
     else:
