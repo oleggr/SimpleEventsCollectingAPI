@@ -15,7 +15,7 @@ class User(UserBasic):
     id: int
 
     @validator('id')
-    def courier_id_validation(cls, v: int):
+    def id_validation(cls, v: int):
         if not (v > 0 and isinstance(v, int)):
             raise ValueError('Id must be positive integer')
         return v

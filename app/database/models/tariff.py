@@ -7,7 +7,7 @@ class TariffBasic(BaseModel):
     start_date: date = 0
     end_date: date = 0
     minutes: int = 0
-    sms: int = ''
+    sms: int = 0
     traffic: int = 0
 
 

@@ -1,8 +1,8 @@
 from datetime import datetime
 
 from app.database.schema import users_table
-from app.database.models.user import UserBasic, User
 from app.database.db_handler import DBHandler
+from app.database.models.user import UserBasic, User
 
 
 class UserService:
@@ -61,3 +61,15 @@ class UserService:
 
         user = await self.get_user(user_id)
         return False if user else True
+
+    def sync_get_user(self, user_id):
+        user_row = self.db.sync_select(
+            users_table.select().where(
+                users_table.c.id == user_id,
+            )
+        )
+
+        if user_row:
+            return User(**user_row)
+        else:
+            return False

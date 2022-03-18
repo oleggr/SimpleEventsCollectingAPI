@@ -36,3 +36,7 @@ class DBHandler:
 
     def create_tables(self):
         metadata.create_all(self.engine)
+
+    def sync_select(self, query):
+        with self.engine.connect() as conn:
+            return conn.execute(query).fetchone()

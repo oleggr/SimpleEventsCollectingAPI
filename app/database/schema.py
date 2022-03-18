@@ -40,3 +40,13 @@ tariff_table = Table(
     Column('sms', Integer),
     Column('traffic', Integer),
 )
+
+events_table = Table(
+    'events',
+    metadata,
+    Column('id', Integer, primary_key=True, autoincrement=True),
+    Column('time', DateTime),
+    Column('id_user', Integer),
+    Column('service_type', Integer),
+    Column('volume', Integer),
+)

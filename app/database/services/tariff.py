@@ -1,6 +1,6 @@
 from app.database.schema import tariff_table
-from app.database.models.tariff import TariffBasic, Tariff
 from app.database.db_handler import DBHandler
+from app.database.models.tariff import TariffBasic, Tariff
 
 
 class TariffService:
@@ -23,14 +23,14 @@ class TariffService:
         return tariff_id if tariff_id else False
 
     async def get_tariff(self, tariff_id: int) -> [Tariff, bool]:
-        user_row = await self.db.select(
+        tariff_row = await self.db.select(
             tariff_table.select().where(
                 tariff_table.c.id == tariff_id,
             )
         )
 
-        if user_row:
-            return Tariff(**user_row)
+        if tariff_row:
+            return Tariff(**tariff_row)
         else:
             return False
 
@@ -53,5 +53,5 @@ class TariffService:
             )
         )
 
-        user = await self.get_tariff(tariff_id)
-        return False if user else True
+        tariff = await self.get_tariff(tariff_id)
+        return False if tariff else True
